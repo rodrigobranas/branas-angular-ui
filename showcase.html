@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="showcase">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="toolkit.js"></script>
+	<link rel="stylesheet" type="text/css" href="showcase-default.css">
+	<script>
+		var app = angular.module("showcase", ['toolkit']);
+		app.controller("showcaseCtrl", function ($scope) {
+			$scope.openModal = function () {
+				$scope.modal = true;
+			};
+			$scope.closeModal = function () {
+				$scope.modal = false;
+			};
+
+			$scope.log = function () {
+				console.log("ok");
+			};
+			$scope.app = "showcase";
+		});
+	</script>
+	<style>
+		.blue {
+			color: blue;
+		}
+	</style>
+</head>
+<body ng-controller="showcaseCtrl">
+	<h1>Show Case - Web Components for AngularJS - v0.1</h1>
+	<a name="modal"><h2>Modal</h2></a>
+	<button ng-click="openModal()">Open Modal</button>
+	<modal open="modal">
+		<modal-header>
+			Client Details
+		</modal-header>
+		<modal-body>
+			Name: Rodrigo Branas<br/>
+			Company: AgileCode<br/>
+			E-Mail: rodrigo.branas@agilecode.com.br<br/>
+			URL: http://www.agilecode.com.br<br/>
+		</modal-body>
+		<modal-footer>
+			<button ng-click="closeModal()">Close Modal</button>
+		</modal-footer>
+	</modal>
+	<hr/>
+	<h2>Accordion</h2>
+	<accordion closeall="true">
+		<accordion-item title="Clean Code">
+			<p>
+				No treinamento de Clean Code serão abordados tópicos relacionados principalmente a responsabilidade e profissionalismo no desenvolvimento de software. Pontos importantes como motivação, qualidade de código, métricas, técnicas de refactoring, desenvolvimento orientado a testes e boas práticas para manter o código limpo e evitar muitas dores de cabeça no futuro!
+			</p>
+		</accordion-item>
+		<accordion-item title="AngularJS">
+			<p>
+				Neste treinamento, abordaremos a criação de aplicações reusáveis, manuteníveis e modulares na prática. Vamos conhecer profundamente seus principais componentes arquiteturais como controladores, diretivas, filtros e serviços e também as melhores formas de combiná-los. Além disso, utilizaremos as melhores ferramentas do mercado para realizar a automação de testes e de todos os processos do desenvolvimento, desde a criação inicial dos projetos, passando pela execução dos testes, até a criação final do pacote de distribuição.
+			</p>
+		</accordion-item>
+		<accordion-item title="Scrum">
+			<p>
+				Neste treinamento, o Scrum será apresentado em detalhes, com o foco na sua utilização prática e na mudança de atitude de cada participante da equipe.
+			</p>
+			<p>
+			Vamos explorar por meio de cenários reais, a criação de um product backlog formado por user-stories, a utilização de técnicas de estimativa e priorização, o planejamento de releases e sprints, a execução de uma sprint completa e seu acompanhamento por meio do burndown chart, além das reuniões diária, de revisão e de retrospectiva.
+			</p>
+		</accordion-item>
+		<accordion-item title="Selenium">
+			<p>
+				Neste treinamento abordaremos a utilização da ferramenta Selenium e sua API conhecida como WebDriver para explorar maneiras de automatizar a execução de testes de aceitação em sistemas web.
+			</p>
+		</accordion-item>
+	</accordion>
+	<hr/>
+	<a name="tabs"><h2>Tabs</h2></a>
+	<tabs>
+		<tab title="Clean Code" active="true">
+			No treinamento de Clean Code serão abordados tópicos relacionados principalmente a responsabilidade e profissionalismo no desenvolvimento de software. Pontos importantes como motivação, qualidade de código, métricas, técnicas de refactoring, desenvolvimento orientado a testes e boas práticas para manter o código limpo e evitar muitas dores de cabeça no futuro!
+		</tab>
+		<tab title="AngularJS">
+			Neste treinamento, abordaremos a criação de aplicações reusáveis, manuteníveis e modulares na prática. Vamos conhecer profundamente seus principais componentes arquiteturais como controladores, diretivas, filtros e serviços e também as melhores formas de combiná-los. Além disso, utilizaremos as melhores ferramentas do mercado para realizar a automação de testes e de todos os processos do desenvolvimento, desde a criação inicial dos projetos, passando pela execução dos testes, até a criação final do pacote de distribuição.
+		</tab>
+	</tabs>
+	<hr/>
+	<h2>Alert</h2>
+	<alert>
+		<b>Ops! There is a problem!</b><br/>
+		Someting went wrong with the server! Try again later!
+	</alert>
+	<hr/>
+	<h2>Carousel</h2>
+	<carousel>
+		<carousel-item>
+			<img src="image01.jpg" width="100%"/>
+		</carousel-item>
+		<carousel-item>
+			<img src="image02.jpg" width="100%"/>
+		</carousel-item>
+		<carousel-item>
+			<img src="image03.jpg" width="100%"/>
+		</carousel-item>
+	</carousel>
+</body>
+</html>
